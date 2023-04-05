@@ -1,0 +1,1 @@
+Aplicación para organizar equipos de trabajo, realizada con react
