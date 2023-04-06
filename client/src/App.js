@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
-import Header from './components/Header/Header';
-import Form from './components/Form/Form';
+import Header from './components/Header';
+import Form from './components/Form';
 
 function App() {
   return (

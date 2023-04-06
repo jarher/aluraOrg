@@ -18,9 +18,7 @@ function OptionList() {
         id="option"
         placeholder="Seleccionar equipo"
       >
-        {teams.map((team, index) => {
-          return <option key={index}>{team}</option>;
-        })}
+        {teams.map((team, index) => <option key={index}>{team}</option>)}
       </select>
     </div>
   );
