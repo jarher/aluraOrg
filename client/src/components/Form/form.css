@@ -15,16 +15,18 @@
 .form__title{
     font-size: 2rem;
     font-weight: 400;
+    margin-bottom: 2%;
 }
 
 .form__button{
     background-color:#6278F7;
     color: white;
-    padding: 2%;
+    padding:2%;
     width: 10%;
     border: none;
     border-radius: 5px;
     margin-top: 2%;
     font-size: 0.8rem;
     font-weight: 600;
+    cursor: pointer;
 }
