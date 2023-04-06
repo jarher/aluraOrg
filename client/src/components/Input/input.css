@@ -3,7 +3,7 @@
     flex-direction: column;
 }
 .form__label{
-    font-weight: bold;
+    font-weight:700;
     margin-bottom: 1%;
 }
 .form__input{
@@ -11,6 +11,8 @@
     border: none;
     box-sizing: border-box;
     margin-bottom: 1%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
 }
 .form__input::placeholder{
     font-size: 1rem;

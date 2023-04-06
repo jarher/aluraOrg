@@ -1,0 +1,15 @@
+.form__select{
+    padding: 2%;
+    border: none;
+    box-sizing: border-box;
+    margin-bottom: 1%;
+    font-size: 1rem;
+    font-family: 'Montserrat';
+    font-size: 1rem;
+}
+.form__select::placeholder{
+    font-size: 1rem;
+}
+.form__select:focus{
+    outline-color:#6278F7;
+}

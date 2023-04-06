@@ -1,5 +1,6 @@
 import "./form.css";
 import Input from "../Input";
+import OptionList from "../OptionList";
 
 function Form() {
   return (
@@ -11,7 +12,7 @@ function Form() {
         <Input title="Nombre" placeholder="Ingrese el nombre" />
         <Input title="Puesto" placeholder="Ingrese el puesto" />
         <Input title="Foto" placeholder="Ingrese el enlace de foto" />
-
+        <OptionList />
         <div className="form__wrapper">
           <button className="form__button">Crear</button>
         </div>
