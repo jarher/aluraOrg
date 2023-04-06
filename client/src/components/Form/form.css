@@ -1,0 +1,30 @@
+.form{
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+    background-color: white;
+}
+.form form{
+    width: 80%;
+    background-color: #F6F6F6;
+    border-radius: 10px;
+    box-shadow: 10px 10px 30px rgba(0,0,0,10%);
+    padding: 2% 5%;
+    box-sizing: border-box;
+}
+.form__title{
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.form__button{
+    background-color:#6278F7;
+    color: white;
+    padding: 2%;
+    width: 10%;
+    border: none;
+    border-radius: 5px;
+    margin-top: 2%;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
