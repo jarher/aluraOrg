@@ -1,6 +1,6 @@
 import "./input.css";
 
-function Input({ title, placeholder }) {
+function Input({ title, placeholder, required }) {
   return (
     <div className="form__wrapper">
       <label className="form__label">{title}</label>
@@ -9,7 +9,7 @@ function Input({ title, placeholder }) {
         type="text"
         data-name
         placeholder={placeholder}
-        required
+        required={required}
       />
     </div>
   );
