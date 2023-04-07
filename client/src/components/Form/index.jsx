@@ -8,7 +8,7 @@ function Form() {
   const [nameValue, setNameValue] = useState("");
   const [workValue, setWorkValue] = useState("");
   const [imgValue, setImgValue] = useState("");
-  const [optionValue, setOptionValue] = useState("programación");
+  const [optionValue, setOptionValue] = useState("");
 
   const submitControl = (e) => {
     e.preventDefault();

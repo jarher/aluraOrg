@@ -1,6 +1,6 @@
 import "./optionList.css";
 
-function OptionList({value, change}) {
+function OptionList({ value, change }) {
   const teams = [
     "Programación",
     "front end",
@@ -18,9 +18,20 @@ function OptionList({value, change}) {
         id="option"
         placeholder="Seleccionar equipo"
         value={value}
-        onChange={(e)=>change(e.target.value)}
+        onChange={(e) => change(e.target.value)}
       >
-        {teams.map((team, index) => <option key={index}>{team}</option>)}
+        <option
+          className="form__option--disabled"
+          value=""
+          disabled
+          defaultValue=""
+          hidden
+        >
+          Seleccionar equipo
+        </option>
+        {teams.map((team, index) => (
+          <option key={index}>{team}</option>
+        ))}
       </select>
     </div>
   );

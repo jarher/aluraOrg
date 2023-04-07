@@ -13,3 +13,6 @@
 .form__select:focus{
     outline-color:#6278F7;
 }
+.form__option--disabled {
+    color:#AFAFAF;
+}
