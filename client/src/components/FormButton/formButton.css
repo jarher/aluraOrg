@@ -11,3 +11,6 @@
     font-weight: bold;
     cursor: pointer;
 }
+.form__button:hover{
+    color: #95FFD4;
+}

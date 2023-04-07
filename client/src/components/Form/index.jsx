@@ -4,9 +4,12 @@ import OptionList from "../OptionList";
 import FormButton from "../FormButton";
 
 function Form() {
+  const submitControl = (e) => {
+    e.preventDefault();
+  }
   return (
     <section className="form">
-      <form>
+      <form onSubmit={submitControl}>
         <h2 className="form__title">
           Rellena el formulario para crear el colaborador
         </h2>
@@ -14,7 +17,7 @@ function Form() {
         <Input title="Puesto" placeholder="Ingrese el puesto" />
         <Input title="Foto" placeholder="Ingrese el enlace de foto" />
         <OptionList />
-        <FormButton />
+        <FormButton text="Crear" />
       </form>
     </section>
   );

@@ -1,9 +1,9 @@
 import "./formButton.css";
 
-function FormButton(){
+function FormButton({text}){
     return (
       <div className="form__wrapper">
-        <button className="form__button">Crear</button>
+        <button className="form__button">{text}</button>
       </div>
     );
 }
