@@ -1,6 +1,6 @@
 import "./optionList.css";
 
-function OptionList() {
+function OptionList({value, change}) {
   const teams = [
     "Programación",
     "front end",
@@ -17,6 +17,8 @@ function OptionList() {
         className="form__select"
         id="option"
         placeholder="Seleccionar equipo"
+        value={value}
+        onChange={(e)=>change(e.target.value)}
       >
         {teams.map((team, index) => <option key={index}>{team}</option>)}
       </select>

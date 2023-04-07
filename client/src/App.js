@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <Header />
-      {showForm ? <Form />: ""}
+      {showForm && <Form />}
       <MiOrg setShowForm={setShowForm} />
     </div>
   );
