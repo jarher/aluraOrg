@@ -4,7 +4,7 @@ import OptionList from "../OptionList";
 import FormButton from "../FormButton";
 import { useState } from "react";
 
-function Form() {
+function Form({teams}) {
   const [nameValue, setNameValue] = useState("");
   const [workValue, setWorkValue] = useState("");
   const [imgValue, setImgValue] = useState("");
@@ -42,7 +42,7 @@ function Form() {
           change={setImgValue}
           required={false}
         />
-        <OptionList value={optionValue} change={setOptionValue} />
+        <OptionList value={optionValue} change={setOptionValue} teams={teams} />
         <FormButton text="Crear" />
       </form>
     </section>

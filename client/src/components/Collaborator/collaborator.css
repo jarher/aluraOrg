@@ -1,0 +1,46 @@
+.collaborator {
+  width: calc((90% - 3.9rem) / 4);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.collaborator__header {
+  position: relative;
+  height: 90px;
+}
+.collaborator__img {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  top: 20px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 1;
+}
+.collaborator__body {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height:160px;
+    padding: 5% 0;
+    box-sizing: border-box;
+}
+.collaborator__name {
+    color:#6278F7;
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    text-align: center;
+}
+.collaborator__profession {
+    font-size: 0.889rem;
+    color:#212121;
+    text-align: center;
+    padding-bottom: 5%;
+}

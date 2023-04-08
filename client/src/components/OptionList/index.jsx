@@ -1,15 +1,6 @@
 import "./optionList.css";
 
-function OptionList({ value, change }) {
-  const teams = [
-    "Programación",
-    "front end",
-    "Data science",
-    "Devops",
-    "UX y Diseño",
-    "Móvil",
-    "Innovación y gestión",
-  ];
+function OptionList({ value, change, teams }) {
   return (
     <div className="form__wrapper">
       <label className="form__label">Equipos</label>
