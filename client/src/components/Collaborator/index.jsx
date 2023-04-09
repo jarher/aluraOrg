@@ -1,9 +1,11 @@
 import "./collaborator.css";
+import {IoMdCloseCircleOutline} from "react-icons/io";
 
 function Collaborator({collaborator, secondaryColor}) {
     const {name, img, profession} = collaborator;
   return (
     <div className="collaborator" style={{backgroundColor:secondaryColor}}>
+      <IoMdCloseCircleOutline className="collaborator__close"/>
       <div
         className="collaborator__header">
         <img

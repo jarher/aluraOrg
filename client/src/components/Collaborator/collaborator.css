@@ -5,6 +5,13 @@
   box-sizing: border-box;
   border-radius: 20px;
   overflow: hidden;
+  position: relative;
+}
+.collaborator__close{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
 }
 .collaborator__header {
   position: relative;
