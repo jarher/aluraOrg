@@ -4,20 +4,26 @@ import OptionList from "../OptionList";
 import FormButton from "../FormButton";
 import { useState } from "react";
 
-function Form({teams}) {
+function Form({teams, collaboratorRegister}) {
   const [nameValue, setNameValue] = useState("");
   const [workValue, setWorkValue] = useState("");
   const [imgValue, setImgValue] = useState("");
-  const [optionValue, setOptionValue] = useState("");
+  const [teamValue, setTeamValue] = useState("");
 
-  const submitControl = (e) => {
+  const createCollaborator = (e) => {
     e.preventDefault();
-    console.log(nameValue, workValue, imgValue, optionValue)
+    const newCollaborator = {
+      name:nameValue,
+      img:imgValue,
+      team:teamValue,
+      profession:workValue
+    }
+    collaboratorRegister(newCollaborator);
   };
   
   return (
     <section className="form">
-      <form onSubmit={submitControl}>
+      <form onSubmit={createCollaborator}>
         <h2 className="form__title">
           Rellena el formulario para crear el colaborador
         </h2>
@@ -42,7 +48,7 @@ function Form({teams}) {
           change={setImgValue}
           required={false}
         />
-        <OptionList value={optionValue} change={setOptionValue} teams={teams} />
+        <OptionList value={teamValue} change={setTeamValue} teams={teams} />
         <FormButton text="Crear" />
       </form>
     </section>

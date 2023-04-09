@@ -1,21 +1,21 @@
 import "./collaborator.css";
 
-function Collaborator({secondaryColor}) {
-    
+function Collaborator({collaborator, secondaryColor}) {
+    const {name, img, profession} = collaborator;
   return (
     <div className="collaborator" style={{backgroundColor:secondaryColor}}>
       <div
         className="collaborator__header">
         <img
-          src="/img/genesis.png"
+          src={img}
           className="collaborator__img"
-          alt="colaborador foto"
+          alt={name}
         />
       </div>
       <div className="collaborator__body">
-        <span className="collaborator__name">Genesis Rondón</span>
+        <span className="collaborator__name">{name}</span>
         <span className="collaborator__profession">
-          Desarrolladora de software e instructora
+          {profession}
         </span>
       </div>
     </div>
