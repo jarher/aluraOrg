@@ -6,7 +6,14 @@ import Team from "./components/Team";
 import Footer from "./components/Footer";
 
 function App() {
-  const teams = [
+
+  const [showForm, setShowForm] = useState(true);
+
+  const [collaborators, setCollaborators] = useState(
+    JSON.parse(localStorage.getItem("collaborators")) || []
+  );
+
+  const [teams, setTeams] = useState([
     {
       title: "Programación",
       primaryColor: "#D9F7E9",
@@ -42,18 +49,31 @@ function App() {
       primaryColor: "#FFEEDF",
       secondaryColor: "#FF8A29",
     },
-  ];
-  const [showForm, setShowForm] = useState(true);
-  
-  const [collaborators, setCollaborators] = useState(
-    JSON.parse(localStorage.getItem("collaborators")) || []
-  );
+  ]);
 
   const collaboratorRegister = (newCollaborator) => {
     const data = JSON.parse(localStorage.getItem("collaborators")) || [];
     setCollaborators([...collaborators, newCollaborator]);
     data.push(newCollaborator);
     localStorage.setItem("collaborators", JSON.stringify(data));
+  };
+
+  const deleteCollaborator = (name) => {
+    const collaborator = collaborators.filter(
+      (collaborator) => collaborator.name !== name
+    );
+    setCollaborators([collaborator]);
+    localStorage.setItem("collaborators", JSON.stringify(collaborator));
+  };
+
+  const updateColorTeam = (color, teamTitle) => {
+    const updatedTeams = teams.map((team) => {
+      if (team.title === teamTitle) {
+        team.secondaryColor = color;
+      }
+      return team;
+    });
+    setTeams(updatedTeams);
   };
 
   return (
@@ -73,6 +93,8 @@ function App() {
             collaborators={collaborators.filter(
               (collaborator) => collaborator.team === team.title
             )}
+            updateColorTeam={updateColorTeam}
+            deleteCollaborator={deleteCollaborator}
             key={team.title}
           />
         ))}
