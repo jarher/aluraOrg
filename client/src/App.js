@@ -82,8 +82,8 @@ function App() {
   };
 
   const createTeam = (newTeam) => {
-    const titles = teams.map((team) => team.title);
-    if (titles.includes(newTeam.title)) {
+    const titles = teams.map((team) => team.title.toLowerCase().replaceAll(/\W+/g,""));
+    if (titles.includes(newTeam.title.toLowerCase().replaceAll(/\W+/g, ""))) {
       alert("Título ya existente");
     } else {
       setTeams([...teams, { ...newTeam, id: uuid() }]);
