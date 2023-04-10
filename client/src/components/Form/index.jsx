@@ -5,24 +5,35 @@ import FormButton from "../FormButton";
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
 
-function Form({teams, collaboratorRegister}) {
+function Form({ teams, collaboratorRegister, createTeam }) {
   const [nameValue, setNameValue] = useState("");
   const [workValue, setWorkValue] = useState("");
   const [imgValue, setImgValue] = useState("");
   const [teamValue, setTeamValue] = useState("");
 
+  const [teamTitle, setTeamTitle] = useState("");
+  const [color, setColor] = useState("#D6D6D6");
+
   const createCollaborator = (e) => {
     e.preventDefault();
     const newCollaborator = {
-      id:uuid(),
-      name:nameValue,
-      img:imgValue,
-      team:teamValue,
-      profession:workValue
-    }
+      id: uuid(),
+      name: nameValue,
+      img: imgValue,
+      team: teamValue,
+      profession: workValue,
+    };
     collaboratorRegister(newCollaborator);
   };
-  
+
+  const createNewTeam = (e) => {
+    e.preventDefault();
+    const newTeam = {
+      title: teamTitle,
+      secondaryColor: color
+    }
+    createTeam(newTeam);
+  }
   return (
     <section className="form">
       <form onSubmit={createCollaborator}>
@@ -52,6 +63,25 @@ function Form({teams, collaboratorRegister}) {
         />
         <OptionList value={teamValue} change={setTeamValue} teams={teams} />
         <FormButton text="Crear" />
+      </form>
+      <form onSubmit={createNewTeam}>
+        <h2 className="form__title">
+          Rellena el formulario para crear un nuevo equipo
+        </h2>
+        <Input
+          title="Título"
+          placeholder="Ingrese el título"
+          value={teamTitle}
+          change={setTeamTitle}
+          required={true}
+        />
+        <Input
+          title="Color"
+          value={color}
+          change={setColor}
+          required={true}
+        />
+        <FormButton text="Crear Equipo" />
       </form>
     </section>
   );

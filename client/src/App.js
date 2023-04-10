@@ -4,10 +4,9 @@ import MiOrg from "./components/MiOrg";
 import { useState } from "react";
 import Team from "./components/Team";
 import Footer from "./components/Footer";
-import { v4 as uuid} from "uuid";
+import { v4 as uuid } from "uuid";
 
 function App() {
-
   const [showForm, setShowForm] = useState(true);
 
   const [collaborators, setCollaborators] = useState(
@@ -16,45 +15,38 @@ function App() {
 
   const [teams, setTeams] = useState([
     {
-      id:uuid(),
+      id: uuid(),
       title: "Programación",
-      primaryColor: "#D9F7E9",
       secondaryColor: "#57C278",
     },
     {
-      id:uuid(),
+      id: uuid(),
       title: "Front-End",
-      primaryColor: "#E8F8FF",
       secondaryColor: "#82CFFA",
     },
     {
-      id:uuid(),
+      id: uuid(),
       title: "Data Science",
-      primaryColor: "#F0F8E2",
       secondaryColor: "#A6D157",
     },
     {
-      id:uuid(),
+      id: uuid(),
       title: "Devops",
-      primaryColor: "#FDE7E8",
       secondaryColor: "#E06B69",
     },
     {
-      id:uuid(),
+      id: uuid(),
       title: "UX y Diseño",
-      primaryColor: "#FAE9F5",
       secondaryColor: "#DB6EBF",
     },
     {
-      id:uuid(),
+      id: uuid(),
       title: "Móvil",
-      primaryColor: "#FFF5D9",
       secondaryColor: "#FFBA05",
     },
     {
-      id:uuid(),
+      id: uuid(),
       title: "Innovación y Gestión",
-      primaryColor: "#FFEEDF",
       secondaryColor: "#FF8A29",
     },
   ]);
@@ -84,6 +76,10 @@ function App() {
     setTeams(updatedTeams);
   };
 
+  const createTeam = (newTeam) => {
+    setTeams([...teams, {...newTeam, id:uuid()}])
+  }
+
   return (
     <div>
       <Header />
@@ -91,6 +87,7 @@ function App() {
         <Form
           teams={teams.map((team) => team.title)}
           collaboratorRegister={collaboratorRegister}
+          createTeam={createTeam}
         />
       )}
       <MiOrg setShowForm={setShowForm} />

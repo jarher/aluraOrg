@@ -1,11 +1,11 @@
 .form{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     padding-top: 80px;
     background-color: white;
 }
 .form form{
-    width: 80%;
+    width: 40%;
     background-color: #F6F6F6;
     border-radius: 10px;
     box-shadow: 10px 10px 30px rgba(0,0,0,10%);
