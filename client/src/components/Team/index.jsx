@@ -2,13 +2,19 @@ import Collaborator from "../Collaborator";
 import hexToRgba from "hex-to-rgba";
 import "./team.css";
 
-
-function Team({ team, collaborators, updateColorTeam, deleteCollaborator}) {
-  
+function Team({
+  team,
+  collaborators,
+  updateColorTeam,
+  deleteCollaborator,
+  collaboratorFav,
+  isFav
+}) {
   const { id, title, secondaryColor } = team;
+
   const backgroundColor = hexToRgba(secondaryColor, 0.3);
   const bgNumbers = backgroundColor.replace(/[a-z()]/g, "").split(",");
- 
+
   const red = Number(bgNumbers[0]);
   const green = Number(bgNumbers[1]);
   const blue = Number(bgNumbers[2]);
@@ -18,14 +24,14 @@ function Team({ team, collaborators, updateColorTeam, deleteCollaborator}) {
     let rHx = r.toString(16);
     let gHx = g.toString(16);
     let bHx = b.toString(16);
-        
+
     if (rHx.length === 1) rHx = "0" + rHx;
     if (gHx.length === 1) gHx = "0" + gHx;
     if (bHx.length === 1) bHx = "0" + bHx;
 
     return "#" + rHx + gHx + bHx;
   }
-  
+
   return (
     collaborators.length > 0 && (
       <section className="team" style={{ backgroundColor: backgroundColor }}>
@@ -49,6 +55,7 @@ function Team({ team, collaborators, updateColorTeam, deleteCollaborator}) {
               collaborator={collaborator}
               secondaryColor={secondaryColor}
               deleteCollaborator={deleteCollaborator}
+              collaboratorFav={collaboratorFav}
               key={collaborator.id}
             />
           ))}

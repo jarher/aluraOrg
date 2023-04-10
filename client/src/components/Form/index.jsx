@@ -12,7 +12,7 @@ function Form({ teams, collaboratorRegister, createTeam }) {
   const [teamValue, setTeamValue] = useState("");
 
   const [teamTitle, setTeamTitle] = useState("");
-  const [color, setColor] = useState("#D6D6D6");
+  const [color, setColor] = useState("#ff0000");
 
   const createCollaborator = (e) => {
     e.preventDefault();
@@ -22,6 +22,7 @@ function Form({ teams, collaboratorRegister, createTeam }) {
       img: imgValue,
       team: teamValue,
       profession: workValue,
+      isFav:false
     };
     collaboratorRegister(newCollaborator);
   };
@@ -30,10 +31,10 @@ function Form({ teams, collaboratorRegister, createTeam }) {
     e.preventDefault();
     const newTeam = {
       title: teamTitle,
-      secondaryColor: color
-    }
+      secondaryColor: color,
+    };
     createTeam(newTeam);
-  }
+  };
   return (
     <section className="form">
       <form onSubmit={createCollaborator}>
@@ -43,21 +44,21 @@ function Form({ teams, collaboratorRegister, createTeam }) {
         <Input
           title="Nombre"
           placeholder="Ingrese el nombre"
-          value={nameValue}
+          inputValue={nameValue}
           change={setNameValue}
           required={true}
         />
         <Input
           title="Puesto"
           placeholder="Ingrese el puesto"
-          value={workValue}
+          inputValue={workValue}
           change={setWorkValue}
           required={true}
         />
         <Input
           title="Foto"
           placeholder="Ingrese el enlace de foto"
-          value={imgValue}
+          inputValue={imgValue}
           change={setImgValue}
           required={false}
         />
@@ -71,16 +72,11 @@ function Form({ teams, collaboratorRegister, createTeam }) {
         <Input
           title="Título"
           placeholder="Ingrese el título"
-          value={teamTitle}
+          inputValue={teamTitle}
           change={setTeamTitle}
           required={true}
         />
-        <Input
-          title="Color"
-          value={color}
-          change={setColor}
-          required={true}
-        />
+        <Input title="Color" inputValue={color} change={setColor} />
         <FormButton text="Crear Equipo" />
       </form>
     </section>

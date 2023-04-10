@@ -51,6 +51,8 @@ function App() {
     },
   ]);
 
+  const [isFav, setIsFav] = useState(false);
+
   const collaboratorRegister = (newCollaborator) => {
     const data = JSON.parse(localStorage.getItem("collaborators")) || [];
     setCollaborators([...collaborators, newCollaborator]);
@@ -77,8 +79,23 @@ function App() {
   };
 
   const createTeam = (newTeam) => {
-    setTeams([...teams, {...newTeam, id:uuid()}])
-  }
+    setTeams([...teams, { ...newTeam, id: uuid() }]);
+  };
+
+  const setCollaboratorFav = (id) => {
+    setIsFav(prev => !prev);
+    const data = JSON.parse(localStorage.getItem("collaborators"));
+    if (data.length > 0) {
+      const updatedCollaborators = data.map((collaborator) => {
+        if (collaborator.id === id) {
+          collaborator.isFav = isFav;
+        }
+        return collaborator;
+      });
+      setCollaborators(updatedCollaborators);
+      localStorage.setItem("collaborators", JSON.stringify(updatedCollaborators));
+    }
+  };
 
   return (
     <div>
@@ -100,6 +117,7 @@ function App() {
             )}
             updateColorTeam={updateColorTeam}
             deleteCollaborator={deleteCollaborator}
+            collaboratorFav={setCollaboratorFav}
             key={team.id}
           />
         ))}
