@@ -8,7 +8,6 @@ function Team({
   updateColorTeam,
   deleteCollaborator,
   collaboratorFav,
-  isFav
 }) {
   const { id, title, secondaryColor } = team;
 

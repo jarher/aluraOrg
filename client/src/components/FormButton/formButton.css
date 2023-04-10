@@ -1,16 +1,19 @@
-.form__button{
-    background-color:#6278F7;
-    color: white;
-    padding:2%;
-    width: 50%;
-    border: none;
-    border-radius: 5px;
-    margin-top: 5%;
-    font-size: 1.111rem;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    cursor: pointer;
+.form__button {
+  background-color: #6278f7;
+  color: white;
+  /* padding: 2%; */
+  padding: 3%;
+  /* width: 50%; */
+  width: 50%;
+  border: none;
+  border-radius: 5px;
+  margin-top: 5%;
+  /* font-size: 1.111rem; */
+  font-size: 0.8rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
 }
-.form__button:hover{
-    color: #95FFD4;
+.form__button:hover {
+  color: #95ffd4;
 }

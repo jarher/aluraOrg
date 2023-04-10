@@ -1,0 +1,10 @@
+.header {
+  background: url("../../../public/img/header.png") no-repeat top center / cover;
+  width: 100%;
+  height: 25vh;
+}
+@media (min-width: 768px) {
+  .header {
+    height: 56vh;
+  }
+}
