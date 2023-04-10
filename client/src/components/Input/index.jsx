@@ -1,6 +1,6 @@
 import "./input.css";
 
-function Input({ title, placeholder, inputValue, change, required}) {
+function Input({title, placeholder, inputValue, change, required}) {
 
   return (
     <div className="form__wrapper">

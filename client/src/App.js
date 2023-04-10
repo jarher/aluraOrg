@@ -13,58 +13,61 @@ function App() {
     JSON.parse(localStorage.getItem("collaborators")) || []
   );
 
-  const [teams, setTeams] = useState([
-    {
-      id: uuid(),
-      title: "Programación",
-      secondaryColor: "#57C278",
-    },
-    {
-      id: uuid(),
-      title: "Front-End",
-      secondaryColor: "#82CFFA",
-    },
-    {
-      id: uuid(),
-      title: "Data Science",
-      secondaryColor: "#A6D157",
-    },
-    {
-      id: uuid(),
-      title: "Devops",
-      secondaryColor: "#E06B69",
-    },
-    {
-      id: uuid(),
-      title: "UX y Diseño",
-      secondaryColor: "#DB6EBF",
-    },
-    {
-      id: uuid(),
-      title: "Móvil",
-      secondaryColor: "#FFBA05",
-    },
-    {
-      id: uuid(),
-      title: "Innovación y Gestión",
-      secondaryColor: "#FF8A29",
-    },
-  ]);
+  const [teams, setTeams] = useState(
+    JSON.parse(localStorage.getItem("teams")) || [
+      {
+        id: uuid(),
+        title: "Programación",
+        secondaryColor: "#57C278",
+      },
+      {
+        id: uuid(),
+        title: "Front-End",
+        secondaryColor: "#82CFFA",
+      },
+      {
+        id: uuid(),
+        title: "Data Science",
+        secondaryColor: "#A6D157",
+      },
+      {
+        id: uuid(),
+        title: "Devops",
+        secondaryColor: "#E06B69",
+      },
+      {
+        id: uuid(),
+        title: "UX y Diseño",
+        secondaryColor: "#DB6EBF",
+      },
+      {
+        id: uuid(),
+        title: "Móvil",
+        secondaryColor: "#FFBA05",
+      },
+      {
+        id: uuid(),
+        title: "Innovación y Gestión",
+        secondaryColor: "#FF8A29",
+      },
+    ]
+  );
 
   const [isFav, setIsFav] = useState(false);
 
   const collaboratorRegister = (newCollaborator) => {
-    const data = JSON.parse(localStorage.getItem("collaborators")) || [];
     setCollaborators([...collaborators, newCollaborator]);
-    data.push(newCollaborator);
-    localStorage.setItem("collaborators", JSON.stringify(data));
+    localStorage.setItem(
+      "collaborators",
+      JSON.stringify([...collaborators, newCollaborator])
+    );
   };
 
   const deleteCollaborator = (id) => {
     const collaborator = collaborators.filter(
       (collaborator) => collaborator.id !== id
     );
-    setCollaborators([collaborator]);
+    setCollaborators(collaborator);
     localStorage.setItem("collaborators", JSON.stringify(collaborator));
   };
 
@@ -79,11 +82,20 @@ function App() {
   };
 
   const createTeam = (newTeam) => {
-    setTeams([...teams, { ...newTeam, id: uuid() }]);
+    const titles = teams.map((team) => team.title);
+    if (titles.includes(newTeam.title)) {
+      alert("Título ya existente");
+    } else {
+      setTeams([...teams, { ...newTeam, id: uuid() }]);
+      localStorage.setItem(
+        "teams",
+        JSON.stringify([...teams, { ...newTeam, id: uuid() }])
+      );
+    }
   };
 
   const setCollaboratorFav = (id) => {
-    setIsFav(prev => !prev);
+    setIsFav((prev) => !prev);
     const data = JSON.parse(localStorage.getItem("collaborators"));
     if (data.length > 0) {
       const updatedCollaborators = data.map((collaborator) => {
@@ -93,10 +105,12 @@ function App() {
         return collaborator;
       });
       setCollaborators(updatedCollaborators);
-      localStorage.setItem("collaborators", JSON.stringify(updatedCollaborators));
+      localStorage.setItem(
+        "collaborators",
+        JSON.stringify(updatedCollaborators)
+      );
     }
   };
-
 
   return (
     <div className="container">

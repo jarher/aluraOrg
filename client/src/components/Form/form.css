@@ -11,12 +11,10 @@
   background-color: #f6f6f6;
   border-radius: 10px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 15%);
-  /* padding: 2% 5%; */
   padding: 5%;
   box-sizing: border-box;
 }
 .form__title {
-  /* font-size: 1.778rem; */
   font-size: 1.2rem;
   font-weight: 400;
   margin-bottom: 2%;
@@ -30,9 +28,15 @@
     gap: 40px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .form {
     padding-top: 50px;
     justify-content: space-evenly;
+  }
+  .form__title {
+    font-size: 1.778rem;
+  }
+  .form form {
+    padding: 2% 5%;
   }
 }

@@ -12,7 +12,7 @@ function Form({ teams, collaboratorRegister, createTeam }) {
   const [teamValue, setTeamValue] = useState("");
 
   const [teamTitle, setTeamTitle] = useState("");
-  const [color, setColor] = useState("#ff0000");
+  const [color, setColor] = useState("#DEDEDE");
 
   const createCollaborator = (e) => {
     e.preventDefault();
@@ -25,6 +25,10 @@ function Form({ teams, collaboratorRegister, createTeam }) {
       isFav:false
     };
     collaboratorRegister(newCollaborator);
+    setNameValue("");
+    setWorkValue("");
+    setImgValue("");
+    setTeamValue("");
   };
 
   const createNewTeam = (e) => {
@@ -34,6 +38,8 @@ function Form({ teams, collaboratorRegister, createTeam }) {
       secondaryColor: color,
     };
     createTeam(newTeam);
+    setTeamTitle("");
+    setColor("#DEDEDE");
   };
   return (
     <section className="form">

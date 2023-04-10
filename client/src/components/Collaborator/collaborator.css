@@ -1,5 +1,5 @@
 .collaborator {
-  width: 139px;
+  width: 80%;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -36,8 +36,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  height: 135px;
-  padding: 5% 0;
+  height: 170px;
+  padding: 5%;
   box-sizing: border-box;
 }
 .collaborator__name {
@@ -57,6 +57,7 @@
 @media (min-width: 768px) {
   .collaborator {
     margin-bottom: 3%;
+    width: 30%;
   }
 }
 @media (min-width: 1024px) {
