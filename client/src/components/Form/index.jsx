@@ -3,6 +3,7 @@ import Input from "../Input";
 import OptionList from "../OptionList";
 import FormButton from "../FormButton";
 import { useState } from "react";
+import { v4 as uuid } from "uuid";
 
 function Form({teams, collaboratorRegister}) {
   const [nameValue, setNameValue] = useState("");
@@ -13,6 +14,7 @@ function Form({teams, collaboratorRegister}) {
   const createCollaborator = (e) => {
     e.preventDefault();
     const newCollaborator = {
+      id:uuid(),
       name:nameValue,
       img:imgValue,
       team:teamValue,

@@ -5,7 +5,7 @@ import "./team.css";
 
 function Team({ team, collaborators, updateColorTeam, deleteCollaborator}) {
   
-  const { title, secondaryColor } = team;
+  const { id, title, secondaryColor } = team;
   const backgroundColor = hexToRgba(secondaryColor, 0.3);
   const bgNumbers = backgroundColor.replace(/[a-z()]/g, "").split(",");
  
@@ -40,7 +40,7 @@ function Team({ team, collaborators, updateColorTeam, deleteCollaborator}) {
           className="team__color"
           value={RGBAToHexA(red, green, blue, alpha)}
           onChange={(e) => {
-            updateColorTeam(e.target.value, title);
+            updateColorTeam(e.target.value, id);
           }}
         />
         <div className="team__collaborators">
@@ -49,7 +49,7 @@ function Team({ team, collaborators, updateColorTeam, deleteCollaborator}) {
               collaborator={collaborator}
               secondaryColor={secondaryColor}
               deleteCollaborator={deleteCollaborator}
-              key={collaborator.name}
+              key={collaborator.id}
             />
           ))}
         </div>
