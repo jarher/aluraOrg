@@ -56,11 +56,26 @@ function App() {
   const [isFav, setIsFav] = useState(false);
 
   const collaboratorRegister = (newCollaborator) => {
-    setCollaborators([...collaborators, newCollaborator]);
-    localStorage.setItem(
-      "collaborators",
-      JSON.stringify([...collaborators, newCollaborator])
-    );
+    const compareObjects = (coll, newCollaborator) => {
+      for (let object of coll) {
+        if (
+          object.name.toLowerCase() === newCollaborator.name.toLowerCase() &&
+          object.team.toLowerCase() === newCollaborator.team.toLowerCase()
+        ) {
+          return true;
+        }
+      }
+      return false;
+    };
+    if (compareObjects(collaborators, newCollaborator)) {
+      alert("El colaborador ya existe en el equipo");
+    } else {
+      setCollaborators([...collaborators, newCollaborator]);
+      localStorage.setItem(
+        "collaborators",
+        JSON.stringify([...collaborators, newCollaborator])
+      );
+    }
   };
 
   const deleteCollaborator = (id) => {
@@ -82,7 +97,9 @@ function App() {
   };
 
   const createTeam = (newTeam) => {
-    const titles = teams.map((team) => team.title.toLowerCase().replaceAll(/\W+/g,""));
+    const titles = teams.map((team) =>
+      team.title.toLowerCase().replaceAll(/\W+/g, "")
+    );
     if (titles.includes(newTeam.title.toLowerCase().replaceAll(/\W+/g, ""))) {
       alert("Título ya existente");
     } else {

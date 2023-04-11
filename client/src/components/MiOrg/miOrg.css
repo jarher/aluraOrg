@@ -6,7 +6,6 @@
   margin: 5% 0;
 }
 .org__title {
-  /* font-size: 2.222rem; */
   font-size: 1.5rem;
   color: #6278f7;
   font-weight: 400;
@@ -14,12 +13,21 @@
   border-bottom: 4px solid #6278f7;
 }
 .org__add {
-  /* width: 100px;
-    height: 100px; */
   width: 50px;
   height: 50px;
   position: absolute;
-  /* right: 10%; */
+
   right: 2%;
   cursor: pointer;
+}
+@media (min-width: 1024px) {
+  .org__title {
+    font-size: 2.222rem;
+  }
+  .org__add {
+    width: 100px;
+    height: 100px;
+
+    right: 10%;
+  }
 }
