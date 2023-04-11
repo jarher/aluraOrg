@@ -1,6 +1,8 @@
 Aplicación para organizar equipos de trabajo, realizada con react.
 En este proyecto, el usuario puede crear un equipo y agregar colaboradores.
 
+En el input foto el usuario deberá poner la url de una foto personal o la imagen que desee.
+
 la aplicación cuenta con un botón de favoritos por cada colaborador. Se puede también eliminar colaboradores de un equipo.
 
 Cuenta con la opción de modificar el color base de cada sección de equipos.
